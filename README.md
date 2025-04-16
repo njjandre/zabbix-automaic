@@ -1,6 +1,6 @@
 # zabbix-automaic
 Cadastro de hosts automatioc
- Ferramenta de Cadastro Automático de Hosts no Zabbix
+Ferramenta de Cadastro Automático de Hosts no Zabbix
 Este projeto é uma aplicação desenvolvida em Python com o objetivo de automatizar o processo de cadastro de hosts no Zabbix — algo que, por padrão, a plataforma não oferece de forma nativa.
 
 🔧 Funcionalidades
