@@ -24,7 +24,10 @@ Automatize o registro de hosts no Zabbix através de uma interface gráfica simp
 - Python 3.x
 - pyzabbix
 
+Se você não quiser rodar o código Python, disponibilizei uma versão .exe pronta para uso:
 
+
+⚠️ Ao baixar o .exe, pode ser que o Windows exiba alertas por ser um programa desconhecido. Isso é esperado em programas feitos manualmente.
 
 ### 🚀 Como usar
 
