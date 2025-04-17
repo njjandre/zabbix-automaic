@@ -1,39 +1,89 @@
-# zabbix-automaic
-Cadastro de hosts automatic
-Ferramenta de Cadastro Automático de Hosts no Zabbix
-Este projeto é uma aplicação desenvolvida em Python com o objetivo de automatizar o processo de cadastro de hosts no Zabbix — algo que, por padrão, a plataforma não oferece de forma nativa.
+🔧 Zabbix Auto Register – Cadastro automático de hosts via GUI (Tkinter + PyZabbix)
+Você já precisou adicionar vários hosts no Zabbix manualmente? Essa ferramenta resolve isso com uma interface simples e amigável! Aqui está um passo a passo de como desenvolvi o script que faz tudo isso acontecer usando Python.
 
-🔧 Funcionalidades
-Interface gráfica amigável (GUI) para facilitar o uso.
+🧠 Ideia
+Automatizar o processo de:
 
-Varredura por faixa de IP (range), definindo IP inicial e final.
+Verificar se hosts respondem na rede.
 
-Identificação automática do nome dos hosts via DNS reverso.
+Obter seus nomes (hostname).
 
-Associação automática dos hosts aos seus respectivos grupos.
+Verificar se já existem no Zabbix.
 
-Aplicação dos templates adequados no momento do cadastro.
+Se não, cadastrar com o grupo e template informados.
 
-Geração de logs completos para rastreabilidade.
+Tudo isso via interface gráfica!
 
-Aplicação empacotada em .exe (Windows), com ícone personalizado, pronta para uso sem necessidade de instalar dependências.
+⚙️ Tecnologias Utilizadas
+Python 3
 
-💡 Sobre a Solução
-Para uma solução simples, a aplicação entrega bastante valor, especialmente em cenários com grande volume de dispositivos a serem cadastrados, como antenas, impressoras e outros equipamentos de rede. Claro que ainda há pontos a melhorar, mas o foco foi resolver de forma prática e eficiente uma dor real do dia a dia.
+Tkinter para a interface gráfica
 
-✅ Requisitos
-Python 3.10+
+pyzabbix para interação com a API do Zabbix
 
-Acesso à API do Zabbix
+subprocess, ipaddress, socket e outros módulos nativos
 
-(Opcional) Ambiente Windows para usar a versão empacotada .exe
+📦 Instalação
+bash
+Copiar
+Editar
+pip install pyzabbix
+🖼️ Interface Gráfica
+A interface foi feita com tkinter e permite:
 
-🚀 Próximos passos
-Melhorias na UI
+Conectar no servidor Zabbix
 
-Validação de campos
+Informar IP inicial/final para escanear
 
-Opção para agendamento de varredura
+Selecionar Grupo e Template com autocomplete
 
-Exportação de logs em formatos alternativos (CSV, JSON)
+Acompanhar logs da execução
 
+Pausar a varredura a qualquer momento
+
+💡 Principais Funções
+1. Conexão com o Zabbix
+
+python
+Copiar
+Editar
+zapi = ZabbixAPI(ZABBIX_SERVER)
+zapi.login(ZABBIX_USER, ZABBIX_PASSWORD)
+2. Verificação de disponibilidade via ping
+
+python
+Copiar
+Editar
+subprocess.run(["ping", "-n", "1", "-w", "1000", ip])
+3. Obter hostname
+
+python
+Copiar
+Editar
+hostname = socket.gethostbyaddr(ip)[0]
+4. Cadastro automático via API
+
+python
+Copiar
+Editar
+zapi.host.create(...)
+📑 Resultado
+Hosts online são cadastrados automaticamente
+
+Evita duplicidade
+
+Gera log da execução (log_zabbix_*.txt)
+
+Interface leve e direta
+
+🧪 Próximos passos
+Adicionar suporte a múltiplas interfaces (ex: SNMP, JMX)
+
+Compatibilidade multiplataforma (Linux/Mac)
+
+Empacotar como .exe via PyInstaller
+
+🧑‍💻 Autor
+Nilson Jandre
+🛠️ DevOps & Automação
+🔗 [Seu LinkedIn ou GitHub]
