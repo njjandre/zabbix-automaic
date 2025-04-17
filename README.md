@@ -1,89 +1,44 @@
-🔧 Zabbix Auto Register – Cadastro automático de hosts via GUI (Tkinter + PyZabbix)
-Você já precisou adicionar vários hosts no Zabbix manualmente? Essa ferramenta resolve isso com uma interface simples e amigável! Aqui está um passo a passo de como desenvolvi o script que faz tudo isso acontecer usando Python.
+## 🛠️ Zabbix Auto Register – Cadastro automático de hosts via GUI
 
-🧠 Ideia
-Automatizar o processo de:
+Automatize o registro de hosts no Zabbix através de uma interface gráfica simples e intuitiva. Ideal para equipes de infraestrutura e DevOps que buscam praticidade e eficiência.
 
-Verificar se hosts respondem na rede.
+---
 
-Obter seus nomes (hostname).
+### 📌 Funcionalidades
 
-Verificar se já existem no Zabbix.
+- Interface gráfica com **Tkinter**
+- Conexão com o Zabbix via **API**
+- **Ping automático** para verificar hosts ativos
+- Criação automática de **grupos e templates**
+- Registro de log em arquivo `.txt`
+- Autocomplete nos campos de Grupo e Template
+- Botão de **Pausar Varredura**
 
-Se não, cadastrar com o grupo e template informados.
 
-Tudo isso via interface gráfica!
 
-⚙️ Tecnologias Utilizadas
-Python 3
 
-Tkinter para a interface gráfica
+---
 
-pyzabbix para interação com a API do Zabbix
+### ⚙️ Requisitos
 
-subprocess, ipaddress, socket e outros módulos nativos
+- Python 3.x
+- pyzabbix
 
-📦 Instalação
-bash
-Copiar
-Editar
-pip install pyzabbix
-🖼️ Interface Gráfica
-A interface foi feita com tkinter e permite:
 
-Conectar no servidor Zabbix
 
-Informar IP inicial/final para escanear
+### 🚀 Como usar
 
-Selecionar Grupo e Template com autocomplete
+1. Execute o script Python.
+2. Informe a URL, usuário e senha do Zabbix.
+3. Conecte-se.
+4. Preencha o IP inicial e final, grupo e template.
+5. Clique em **Iniciar Varredura**.
+6. Monitore o log e pause a qualquer momento.
 
-Acompanhar logs da execução
 
-Pausar a varredura a qualquer momento
+### 👨‍💻 Desenvolvedor
 
-💡 Principais Funções
-1. Conexão com o Zabbix
+**Nilson Jandre**  
+🔗 https://www.linkedin.com/in/nilsonjandre/
 
-python
-Copiar
-Editar
-zapi = ZabbixAPI(ZABBIX_SERVER)
-zapi.login(ZABBIX_USER, ZABBIX_PASSWORD)
-2. Verificação de disponibilidade via ping
 
-python
-Copiar
-Editar
-subprocess.run(["ping", "-n", "1", "-w", "1000", ip])
-3. Obter hostname
-
-python
-Copiar
-Editar
-hostname = socket.gethostbyaddr(ip)[0]
-4. Cadastro automático via API
-
-python
-Copiar
-Editar
-zapi.host.create(...)
-📑 Resultado
-Hosts online são cadastrados automaticamente
-
-Evita duplicidade
-
-Gera log da execução (log_zabbix_*.txt)
-
-Interface leve e direta
-
-🧪 Próximos passos
-Adicionar suporte a múltiplas interfaces (ex: SNMP, JMX)
-
-Compatibilidade multiplataforma (Linux/Mac)
-
-Empacotar como .exe via PyInstaller
-
-🧑‍💻 Autor
-Nilson Jandre
-🛠️ DevOps & Automação
-🔗 [Seu LinkedIn ou GitHub]
